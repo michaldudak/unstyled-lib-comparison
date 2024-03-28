@@ -1,95 +1,57 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { ComponentDemos, ComponentGrid, ComponentHeader, Demo } from '@/ComponentGrid';
+import classes from './page.module.css';
+
+import { Button as AriakitButton } from '@/design-systems/ariakit/Button';
+import { Button as BaseUIButton } from '@/design-systems/base-ui/Button';
+import { Button as ReactAriaButton } from '@/design-systems/react-aria/Button';
+
+import { Switch as BaseUISwitch } from '@/design-systems/base-ui/Switch';
+import { Switch as ReactAriaSwitch } from '@/design-systems/react-aria/Switch';
+import { Switch as RadixUISwitch } from '@/design-systems/radix-ui/Switch';
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+	return (
+		<div className={classes.root}>
+			<h1>Unstyled component comparison</h1>
+			<ComponentGrid libraries={['Base UI', 'Ariakit', 'Radix UI', 'React Aria']}>
+				<ComponentHeader>Button</ComponentHeader>
+				<ComponentDemos section="Basic">
+					<Demo>
+						<BaseUIButton>Button</BaseUIButton>
+					</Demo>
+					<Demo>
+						<AriakitButton>Button</AriakitButton>
+					</Demo>
+					<Demo>not available</Demo>
+					<Demo>
+						<ReactAriaButton>Button</ReactAriaButton>
+					</Demo>
+				</ComponentDemos>
+				<ComponentDemos section="With custom element">
+					<Demo>
+						<BaseUIButton slots={{ root: 'span' }}>Button</BaseUIButton>
+					</Demo>
+					<Demo>
+						<AriakitButton render={<span />}>Button</AriakitButton>
+					</Demo>
+					<Demo>not available</Demo>
+					<Demo>not available</Demo>
+				</ComponentDemos>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+				<ComponentHeader>Switch</ComponentHeader>
+				<ComponentDemos section="Basic">
+					<Demo>
+						<BaseUISwitch>Button</BaseUISwitch>
+					</Demo>
+					<Demo>not available</Demo>
+					<Demo>
+						<RadixUISwitch>Button</RadixUISwitch>
+					</Demo>
+					<Demo>
+						<ReactAriaSwitch>Button</ReactAriaSwitch>
+					</Demo>
+				</ComponentDemos>
+			</ComponentGrid>
+		</div>
+	);
 }
