@@ -1,0 +1,47 @@
+.root {
+	text-align: left;
+	border-top: 1px solid #333;
+	padding-top: 20px;
+}
+
+.root h2 {
+	font-size: 2rem;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+
+.section {
+	margin-bottom: 40px;
+}
+
+.section h3 {
+	font-size: 1.35rem;
+	font-weight: normal;
+	margin: 0.25rem 0 0.5rem;
+}
+
+.demos {
+	display: flex;
+	gap: 20px;
+}
+
+.demo {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 20px 20px 30px 20px;
+	border-radius: 4px;
+	background: #101010;
+}
+
+.libraryName {
+	position: absolute;
+	bottom: 0;
+	right: 2px;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	opacity: 0.8;
+	margin: 4px;
+}
